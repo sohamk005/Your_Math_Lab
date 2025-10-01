@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const FeatureCard = ({ title, description, linkTo, icon }) => (
     <Link to={linkTo} className="block p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-xl hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1">
         <div className="flex items-center mb-3">
@@ -17,7 +18,7 @@ const HomePage = () => (
       <h2 className="text-5xl font-extrabold text-gray-800">Welcome to Your Math Lab</h2>
       <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">Your comprehensive, interactive toolkit for exploring the world of mathematics. Solve, plot, and visualize complex concepts with ease.</p>
       <div className="mt-8">
-        <img src="https://placehold.co/700x350/dbeafe/1e3a8a?text=Interactive+Mathematics" alt="Mathematical Visualizations" className="rounded-lg shadow-2xl mx-auto"/>
+        <img src="/hero.png" alt="Mathematical Visualizations" className="rounded-lg shadow-2xl mx-auto"/>
       </div>
     </section>
     
