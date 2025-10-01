@@ -23,14 +23,14 @@ const EquationSolversPage = () => {
         errorSetter(''); resultSetter('');
         viewSetter({ min: -10, max: 10 });
 
-        let endpoint = 'http://127.0.0.1:5000/api/solve';
+        let endpoint = `${API_BASE_URL}/api/solve`;
         let body = {};
 
         if (type === 'quadratic') { body = { type, a: quadA, b: quadB, c: quadC }; } 
         else if (type === 'cubic') { body = { type, a: cubicA, b: cubicB, c: cubicC, d: cubicD }; } 
         else {
             if (polyCoeffs.some(c => c === '')) { errorSetter('All coefficient fields must be filled.'); return; }
-            endpoint = 'http://127.0.0.1:5000/api/solve-polynomial';
+            endpoint = `${API_BASE_URL}/api/solve-polynomial`;
             body = { coefficients: polyCoeffs };
         }
 

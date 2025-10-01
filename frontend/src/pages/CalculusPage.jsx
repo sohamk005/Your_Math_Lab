@@ -25,7 +25,7 @@ const CalculusPage = () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/calculus', {
+            const response = await fetch(`${API_BASE_URL}/api/calculus`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ expression, operation, x_range: newView })

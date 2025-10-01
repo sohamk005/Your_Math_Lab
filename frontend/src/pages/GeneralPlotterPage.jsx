@@ -15,7 +15,7 @@ const GeneralPlotterPage = () => {
         setError('');
         
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/plot-general', {
+            const response = await fetch(`${API_BASE_URL}/api/plot-general`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ expression, x_range: newView })
