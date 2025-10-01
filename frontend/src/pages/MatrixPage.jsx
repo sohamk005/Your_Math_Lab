@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config'
 
 const MatrixInput = ({ matrix, onMatrixChange, rows, onRowsChange, cols, onColsChange, title }) => {
     const handleCellChange = (rowIndex, colIndex, value) => {

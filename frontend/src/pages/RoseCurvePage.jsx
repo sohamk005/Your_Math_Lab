@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import Hammer from 'hammerjs';
+import { API_BASE_URL } from '../config'
 
 // A reusable component for the controls to avoid duplicating code
 const RoseCurveControls = ({ roseA, setRoseA, n, setN, d, setD, roseFunction, setRoseFunction, roseColor, setRoseColor }) => {
