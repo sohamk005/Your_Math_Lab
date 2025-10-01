@@ -5,7 +5,7 @@ from typing import List, Union
 import sympy as sp
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "https://your-math-lab.netlify.app"}})
 
 @app.route('/api/solve', methods=['POST', 'OPTIONS'])
 def solve():
