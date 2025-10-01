@@ -5,7 +5,7 @@ from typing import List, Union
 import sympy as sp
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api/solve', methods=['POST', 'OPTIONS'])
 def solve():
@@ -312,5 +312,3 @@ def plot_parametric():
         return jsonify(error="An unexpected error occurred during calculation."), 500
 
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
