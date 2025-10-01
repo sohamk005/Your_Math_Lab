@@ -18,7 +18,7 @@ const HomePage = () => (
       <h2 className="text-5xl font-extrabold text-gray-800">Welcome to Your Math Lab</h2>
       <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">Your comprehensive, interactive toolkit for exploring the world of mathematics. Solve, plot, and visualize complex concepts with ease.</p>
       <div className="mt-8">
-        <img src="/hero.png" alt="Mathematical Visualizations" className="rounded-lg shadow-2xl mx-auto"/>
+        <img src="/hero.png" alt="Mathematical Visualizations" className="rounded-lg shadow-2xl mx-auto w-full max-w-4xl"/>
       </div>
     </section>
     
