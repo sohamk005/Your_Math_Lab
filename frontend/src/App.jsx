@@ -5,7 +5,7 @@ import {
 } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 
-// Import Components and Pages
+// Imported Components and Pages
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -17,7 +17,7 @@ import CalculusPage from './pages/CalculusPage';
 import GeneralPlotterPage from './pages/GeneralPlotterPage';
 import ParametricPlotterPage from './pages/ParametricPlotterPage';
 
-// Register ChartJS components globally here
+// ChartJS components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, zoomPlugin);
 
 function App() {

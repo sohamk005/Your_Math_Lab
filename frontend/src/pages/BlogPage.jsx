@@ -12,13 +12,13 @@ const BlogPage = () => {
       title: "Solving Polynomials: From Newton to NumPy",
       summary: "Finding the roots of a high-degree polynomial is a classic computational challenge. We'll explore the history of polynomial solvers and see how modern libraries like NumPy make it incredibly efficient.",
       imageUrl: "https://placehold.co/600x400/d1fae5/047857?text=Polynomial+Roots",
-      link: "https://medium.com/", // <-- REPLACE WITH YOUR ACTUAL ARTICLE LINK
+      link: "https://medium.com/", 
     },
      {
       title: "Building an Interactive Math App with React & Flask",
       summary: "A behind-the-scenes look at how this very website was built! I'll walk you through the architecture of a modern web app, from the React frontend to the Python Flask API backend.",
       imageUrl: "https://placehold.co/600x400/cffafe/0e7490?text=React+Flask+Code",
-      link: "https://medium.com/", // <-- REPLACE WITH YOUR ACTUAL ARTICLE LINK
+      link: "https://medium.com/", 
     },
   ];
 

@@ -11,9 +11,8 @@ const CalculusPage = () => {
     const [chartData, setChartData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    // --- NEW STATE ---
     const [view, setView] = useState({ min: -10, max: 10 });
-    const [currentTask, setCurrentTask] = useState(null); // To remember the last operation
+    const [currentTask, setCurrentTask] = useState(null);
 
     const performOperation = async (operation, newView = { min: -10, max: 10 }) => {
         setIsLoading(true);
@@ -33,7 +32,6 @@ const CalculusPage = () => {
             });
             const data = await response.json();
             if (response.ok) {
-                // Only set the text result on the initial calculation
                 if (newView.min === -10 && newView.max === 10) {
                     setResult({ operation, expression: data.result_expression });
                 }
@@ -53,7 +51,6 @@ const CalculusPage = () => {
         }
     };
 
-    // Re-fetch data when view changes after an initial operation
     useEffect(() => {
         if (currentTask) {
             performOperation(currentTask.operation, view);
@@ -80,10 +77,8 @@ const CalculusPage = () => {
         <div className="animate-fade-in space-y-8">
             <h2 className="text-4xl font-bold text-center text-gray-800">Calculus Toolkit</h2>
 
-            {/* --- CHANGE IS HERE: Changed to a 3-column grid --- */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                 
-                {/* --- CHANGE IS HERE: This column now spans 2 of the 3 grid columns on large screens --- */}
                 <div className="w-full lg:col-span-2">
                     <div className="flex justify-between items-center mb-2">
                          <p className="text-gray-600">Scroll to zoom, drag to pan</p>
@@ -101,7 +96,6 @@ const CalculusPage = () => {
                     </div>
                 </div>
 
-                {/* --- This column takes up the remaining 1/3 of the space --- */}
                 <div className="space-y-6">
                     <div className="p-6 bg-gray-50 rounded-lg border h-full">
                         <label htmlFor="expression-input" className="block text-lg font-medium text-gray-700">Enter a function of x:</label>

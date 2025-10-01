@@ -51,7 +51,6 @@ const ParametricPlotterPage = () => {
         }
     };
 
-    // Plot automatically on initial load
     useEffect(() => {
         plotFunction();
     }, []);
@@ -76,7 +75,7 @@ const ParametricPlotterPage = () => {
         <div className="animate-fade-in space-y-8">
             <h2 className="text-4xl font-bold text-center text-gray-800">Parametric Plotter</h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                {/* --- Left Column: Controls --- */}
+
                 <div className="p-6 bg-gray-50 rounded-lg border h-full space-y-4">
                     <div>
                         <label htmlFor="x-expr" className="block text-lg font-medium text-gray-700">X(t) =</label>
@@ -103,7 +102,7 @@ const ParametricPlotterPage = () => {
                     {error && <p className="text-red-500 text-center pt-2 font-semibold">{error}</p>}
                 </div>
 
-                {/* --- Right Column: Graph --- */}
+
                 <div className="w-full lg:col-span-2">
                     <div className="flex justify-end items-center space-x-2 mb-2">
                         {chartData && <button onClick={resetZoom} className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-600 transition">Reset Zoom</button>}

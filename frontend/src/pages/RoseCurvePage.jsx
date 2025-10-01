@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import Hammer from 'hammerjs';
 import { API_BASE_URL } from '../config'
 
-// A reusable component for the controls to avoid duplicating code
+
 const RoseCurveControls = ({ roseA, setRoseA, n, setN, d, setD, roseFunction, setRoseFunction, roseColor, setRoseColor }) => {
     const handleNumberInput = (setter, value) => {
         if (value === '') { setter(''); return; }
@@ -41,7 +41,7 @@ const RoseCurveControls = ({ roseA, setRoseA, n, setN, d, setD, roseFunction, se
 };
 
 const RoseCurvePage = () => {
-  // --- FIX: Use separate refs for each chart instance ---
+
   const mainChartRef = useRef(null);
   const modalChartRef = useRef(null);
   
@@ -87,7 +87,6 @@ const RoseCurvePage = () => {
     animation: { duration: 0 }
   };
   
-  // --- FIX: Functions now take a ref as an argument ---
   const handleDownload = (chartRef) => { 
     if (chartRef.current) { 
       const link = document.createElement('a'); 
@@ -109,7 +108,7 @@ const RoseCurvePage = () => {
                     <p className="text-gray-600 mt-2 font-mono text-lg">Scroll to zoom, drag to pan</p>
                 </div>
                 <div className="flex space-x-2">
-                    {/* --- FIX: Buttons now call functions with the correct ref --- */}
+
                     <button onClick={() => resetZoom(mainChartRef)} className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-600 transition">Reset Zoom</button>
                     <button onClick={() => setIsModalOpen(true)} className="bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition">Enlarge</button>
                     <button onClick={() => handleDownload(mainChartRef)} className="bg-green-600 text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 transition">Download PNG</button>
@@ -134,7 +133,7 @@ const RoseCurvePage = () => {
                             <p className="text-gray-600 text-sm">Scroll to zoom, drag to pan</p>
                         </div>
                         <div>
-                             {/* --- FIX: Modal buttons use the modal's ref --- */}
+
                             <button onClick={() => resetZoom(modalChartRef)} className="bg-gray-500 text-white font-bold py-2 px-4 rounded-md hover:bg-gray-600 transition mr-2">Reset Zoom</button>
                             <button onClick={() => handleDownload(modalChartRef)} className="bg-green-600 text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 transition mr-2">Download PNG</button>
                             <button onClick={() => setIsModalOpen(false)} className="bg-red-600 text-white font-bold py-2 px-4 rounded-md hover:bg-red-700 transition">Close</button>

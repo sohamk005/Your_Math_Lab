@@ -78,7 +78,6 @@ const MatrixPage = () => {
         setError('');
         setResult(null);
 
-        // Basic validation
         if (matrixA.flat().some(c => c === '') || matrixB.flat().some(c => c === '')) {
             setError('Please fill all matrix cells before calculating.');
             return;

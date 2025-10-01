@@ -35,7 +35,7 @@ const GeneralPlotterPage = () => {
                 });
             } else {
                 setError(data.error || 'An error occurred.');
-                setChartData(null); // Clear chart on error
+                setChartData(null); 
             }
         } catch (err) {
             setError('Failed to connect to the backend server.');
@@ -45,13 +45,12 @@ const GeneralPlotterPage = () => {
         }
     };
 
-    // Re-fetch data when view changes
     useEffect(() => {
         plotFunction(view);
     }, [view]);
 
     const handlePlotClick = () => {
-        // Reset the view and trigger a plot
+
         setView({ min: -10, max: 10 });
         plotFunction({ min: -10, max: 10 });
     };

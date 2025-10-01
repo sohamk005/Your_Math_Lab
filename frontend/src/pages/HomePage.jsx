@@ -1,32 +1,57 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const HomePage = ({ setActivePage }) => (
-  <div className="space-y-12 animate-fade-in">
-    <section className="text-center bg-blue-50 py-16 rounded-lg">
-      <h2 className="text-5xl font-bold text-gray-800">Welcome to Your Math Lab</h2>
-      <p className="text-xl text-gray-600 mt-4 max-w-2xl mx-auto">Your one-stop destination for solving complex equations and visualizing beautiful mathematical curves in an interactive way.</p>
+const FeatureCard = ({ title, description, linkTo, icon }) => (
+    <Link to={linkTo} className="block p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-xl hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-1">
+        <div className="flex items-center mb-3">
+            <span className="text-3xl mr-4">{icon}</span>
+            <h4 className="text-2xl font-bold text-gray-800">{title}</h4>
+        </div>
+        <p className="text-gray-600">{description}</p>
+    </Link>
+);
+
+const HomePage = () => (
+  <div className="space-y-16 animate-fade-in">
+    <section className="text-center bg-gradient-to-br from-blue-50 to-indigo-100 py-20 rounded-lg">
+      <h2 className="text-5xl font-extrabold text-gray-800">Welcome to Your Math Lab</h2>
+      <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">Your comprehensive, interactive toolkit for exploring the world of mathematics. Solve, plot, and visualize complex concepts with ease.</p>
       <div className="mt-8">
-        <img src="https://placehold.co/600x300/e0e7ff/3730a3?text=Mathematical+Visualizations" alt="Mathematical Visualizations" className="rounded-lg shadow-lg mx-auto"/>
+        <img src="https://placehold.co/700x350/dbeafe/1e3a8a?text=Interactive+Mathematics" alt="Mathematical Visualizations" className="rounded-lg shadow-2xl mx-auto"/>
       </div>
-       <button onClick={() => setActivePage('solvers')} className="mt-8 bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition text-lg">
-        Get Started
-      </button>
     </section>
     
     <section>
-      <h3 className="text-3xl font-semibold text-gray-700 text-center mb-8">Our Tools</h3>
-      <div className="grid md:grid-cols-2 gap-8 text-left">
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition">
-          <h4 className="text-2xl font-bold mb-2">Equation Solvers</h4>
-          <p className="text-gray-600">Tackle everything from simple quadratics to high-degree polynomials. Our powerful backend provides instant, accurate roots, and we plot the results for you to see the function's behavior.</p>
-        </div>
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-md transition">
-          <h4 className="text-2xl font-bold mb-2">Interactive Curve Plotters</h4>
-          <p className="text-gray-600">Discover the beauty of mathematics. Use sliders and real-time controls to manipulate parameters and create stunning Rose Curves. Perfect for students, teachers, and enthusiasts alike.</p>
-        </div>
+      <h3 className="text-4xl font-bold text-gray-700 text-center mb-10">Explore Our Tools</h3>
+      <div className="grid md:grid-cols-2 gap-8">
+        <FeatureCard 
+          title="Equation Solvers"
+          description="From quadratics to high-degree polynomials, find real and complex roots in an instant. Our backend does the heavy lifting for you."
+          linkTo="/solvers"
+          icon="🧮"
+        />
+        <FeatureCard 
+          title="Curve Plotters"
+          description="Discover the beauty of mathematics. Create stunning Rose Curves and intricate Parametric plots with real-time, interactive controls."
+          linkTo="/curves"
+          icon="🌹"
+        />
+        <FeatureCard 
+          title="Matrix Calculator"
+          description="Perform essential linear algebra operations. Add, subtract, and multiply matrices with a simple and intuitive interface."
+          linkTo="/matrix"
+          icon="🔢"
+        />
+        <FeatureCard 
+          title="Calculus Toolkit"
+          description="Unravel the principles of calculus. Symbolically differentiate and integrate functions, and visualize the results on an infinite canvas."
+          linkTo="/calculus"
+          icon="📈"
+        />
       </div>
     </section>
   </div>
 );
 
 export default HomePage;
+

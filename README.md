@@ -1,7 +1,7 @@
 # Your Math Lab 🧪 
 An interactive, web-based mathematics laboratory for solving equations, visualizing curves, performing calculus, matrix operations, and more. This repository is a monorepo containing both the React frontend and the Python/Flask backend.
 
-[➡️ Live Demo Coming Soon! ⬅️]
+[➡️ Live Demo ⬅️]
 
 ( https://your-math-lab.netlify.app/ )
 

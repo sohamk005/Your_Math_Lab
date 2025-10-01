@@ -45,7 +45,6 @@ def solve():
         else:
             return jsonify(error="Invalid equation type provided"), 400
 
-        # Common formatting for roots
         roots = []
         for r in solutions:
             if abs(r.imag) > 1e-9:
@@ -59,13 +58,10 @@ def solve():
     except (ValueError, TypeError):
         return jsonify(error="Invalid input. Please ensure all coefficients are numbers."), 400
 
-# NEW ENDPOINT for the general solver
+# general polynomial solver
 @app.route('/api/solve-polynomial', methods=['POST', 'OPTIONS'])
 def solve_polynomial():
-    """
-    Solves a polynomial of any degree.
-    Expects a JSON payload with a 'coefficients' list.
-    """
+    
     if request.method == 'OPTIONS':
         return jsonify(success=True), 200
     if not request.is_json:
@@ -173,7 +169,6 @@ def calculus_operation():
         original_func = sp.lambdify(x, original_expr, 'numpy')
         result_func = sp.lambdify(x, result_expr, 'numpy')
         
-        # Use the provided or default range for plotting
         x_vals = np.linspace(x_min, x_max, 200)
         original_y = original_func(x_vals)
         result_y = result_func(x_vals)
@@ -193,7 +188,6 @@ def calculus_operation():
     except Exception as e:
         return jsonify(error=f"An unexpected error occurred: {str(e)}"), 500
 
-# --- UPGRADED AND CORRECTED GENERAL PLOTTER ENDPOINT ---
 @app.route('/api/plot-general', methods=['POST', 'OPTIONS'])
 def plot_general_function():
     if request.method == 'OPTIONS':
@@ -225,20 +219,15 @@ def plot_general_function():
         x_vals = np.linspace(x_min, x_max, 500)
         y_vals = func(x_vals)
 
-        # --- NEW, MORE RELIABLE ASYMPTOTE DETECTION ---
-        # 1. Find indices where the sign of y changes
+        # ASYMPTOTE DETECTION ---
         sign_changes = np.where(np.sign(y_vals[:-1]) != np.sign(y_vals[1:]))[0] + 1
         
-        # 2. Find indices where the jump in y is very large
         huge_jumps = np.where(np.abs(np.diff(y_vals)) > 1000)[0] + 1
         
-        # 3. Find where BOTH conditions are true: that's our asymptote
         asymptote_indices = np.intersect1d(sign_changes, huge_jumps)
         
-        # 4. Replace the y-value at these locations with "Not a Number"
         y_vals[asymptote_indices] = np.nan
         
-        # 5. Create the final plot data, converting NaN to None for JSON compatibility
         plot_data = []
         for xv, yv in zip(x_vals, y_vals):
             if np.isnan(yv) or not np.isfinite(yv):
@@ -251,7 +240,6 @@ def plot_general_function():
     except (sp.SympifyError, TypeError, SyntaxError):
         return jsonify(error="Invalid mathematical expression."), 400
     except Exception as e:
-        # Provide a more generic error for security in a real production app
         return jsonify(error="An unexpected error occurred during calculation."), 500
 
 @app.route('/api/plot-parametric', methods=['POST', 'OPTIONS'])
@@ -277,16 +265,12 @@ def plot_parametric():
             'pi': sp.pi
         }
 
-        # --- THIS IS THE FIX ---
-        # Use sympify to safely evaluate the min and max range strings
         t_min_expr = sp.sympify(t_range.get('min', '0'), locals=allowed_functions)
         t_max_expr = sp.sympify(t_range.get('max', '2*pi'), locals=allowed_functions)
         
-        # Now convert the evaluated expressions to floats
         t_min = float(t_min_expr.evalf())
         t_max = float(t_max_expr.evalf())
-        
-        # Safely parse both main expressions
+
         x_expr = sp.sympify(x_expr_str, locals={'t': t, **allowed_functions})
         y_expr = sp.sympify(y_expr_str, locals={'t': t, **allowed_functions})
 

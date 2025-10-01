@@ -8,12 +8,10 @@ const EquationSolversPage = () => {
     const cubicChartRef = useRef(null);
     const polyChartRef = useRef(null);
     
-    // All state variables remain the same
     const [quadA, setQuadA] = useState(''); const [quadB, setQuadB] = useState(''); const [quadC, setQuadC] = useState(''); const [quadResult, setQuadResult] = useState(''); const [quadError, setQuadError] = useState(''); const [quadChartData, setQuadChartData] = useState(null);
     const [cubicA, setCubicA] = useState(''); const [cubicB, setCubicB] = useState(''); const [cubicC, setCubicC] = useState(''); const [cubicD, setCubicD] = useState(''); const [cubicResult, setCubicResult] = useState(''); const [cubicError, setCubicError] = useState(''); const [cubicChartData, setCubicChartData] = useState(null);
     const [polyDegree, setPolyDegree] = useState(4); const [polyCoeffs, setPolyCoeffs] = useState(Array.from({ length: 5 }, () => '')); const [polyResult, setPolyResult] = useState(''); const [polyError, setPolyError] = useState(''); const [polyChartData, setPolyChartData] = useState(null);
 
-    // This logic remains the same
     useEffect(() => { setPolyCoeffs(Array.from({ length: parseInt(polyDegree) || 1 }, () => '')); }, [polyDegree]);
 
     const solveEquation = async (type) => {
@@ -115,7 +113,7 @@ const EquationSolversPage = () => {
                 </div>
                 <p className="text-gray-600 mt-2 mb-4">ax² + bx + c = 0</p>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
-                    {/* --- FIX IS HERE --- */}
+
                     <input type="number" value={quadA} onChange={(e) => setQuadA(e.target.value)} placeholder="a (x²)" className="form-input p-3 border rounded-md"/>
                     <input type="number" value={quadB} onChange={(e) => setQuadB(e.target.value)} placeholder="b (x)" className="form-input p-3 border rounded-md"/>
                     <input type="number" value={quadC} onChange={(e) => setQuadC(e.target.value)} placeholder="c" className="form-input p-3 border rounded-md"/>
@@ -132,7 +130,7 @@ const EquationSolversPage = () => {
                 </div>
                 <p className="text-gray-600 mt-2 mb-4">ax³ + bx² + cx + d = 0</p>
                 <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center">
-                    {/* --- FIX IS HERE --- */}
+
                     <input type="number" value={cubicA} onChange={(e) => setCubicA(e.target.value)} placeholder="a (x³)" className="form-input p-3 border rounded-md"/>
                     <input type="number" value={cubicB} onChange={(e) => setCubicB(e.target.value)} placeholder="b (x²)" className="form-input p-3 border rounded-md"/>
                     <input type="number" value={cubicC} onChange={(e) => setCubicC(e.target.value)} placeholder="c (x)" className="form-input p-3 border rounded-md"/>
