@@ -3,7 +3,7 @@ An interactive, web-based mathematics laboratory for solving equations, visualiz
 
 [➡️ Live Demo Coming Soon! ⬅️]
 
-(---)
+( https://your-math-lab.netlify.app/ )
 
 # 📚 Introduction
 "Your Math Lab" is a comprehensive single-page application designed to make mathematics more accessible and interactive. It provides a suite of powerful tools for students, educators, and enthusiasts to explore mathematical concepts visually.
